@@ -21,6 +21,6 @@ export class ProductUpdateDTO {
   @IsString()
   description: string
 
-  @IsUUID()
-  storageId: string
+  // @IsUUID()
+  // storageId: string
 }

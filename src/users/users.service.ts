@@ -22,7 +22,7 @@ export class UsersService {
     });
   };
 
-  public async getByEmail(email: User['email']): Promise<User | null> {
+  public async getByEmail(email: User['email']): Promise<User & { password: Password }| null> {
     return await this.prismaService.user.findUnique({
       where: { email },
       include: { password: true }

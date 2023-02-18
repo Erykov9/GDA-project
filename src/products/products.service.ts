@@ -9,7 +9,8 @@ export class ProductsService {
   public getAll(): Promise<Product[]> {
     return this.prismaService.product.findMany({
       include: {
-        ingridients: true
+        ingridients: true,
+        storage: true
       }
     });
   };
@@ -18,7 +19,8 @@ export class ProductsService {
     return this.prismaService.product.findUnique({
       where: { id },
       include: {
-        ingridients: true
+        ingridients: true,
+        storage: true
       }
     });
   };
@@ -37,7 +39,7 @@ export class ProductsService {
 
   public updateById(
     id: Product['id'],
-    productData: Omit<Product, 'id' | 'createdAt' | 'updatedAt'>): Promise<Product> {
+    productData: Omit<Product, 'id' | 'createdAt' | 'updatedAt' | 'storageId'>): Promise<Product> {
     return this.prismaService.product.update({
       where: { id },
       data: productData
