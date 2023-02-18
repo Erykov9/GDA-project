@@ -2,7 +2,8 @@ import {
   IsString,
   IsInt,
   Min,
-  Max
+  Max,
+  IsUUID
  } from  'class-validator';
 
 export class ProductUpdateDTO {
@@ -19,4 +20,7 @@ export class ProductUpdateDTO {
 
   @IsString()
   description: string
+
+  @IsUUID()
+  storageId: string
 }

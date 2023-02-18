@@ -1,4 +1,4 @@
-import { IsString, IsInt, IsNotEmpty, Min, Max, Length } from 'class-validator';
+import { IsString, IsInt, IsNotEmpty, Min, Max, Length, IsUUID } from 'class-validator';
 
 export class ProductDTO {
 
@@ -21,4 +21,8 @@ export class ProductDTO {
   @IsString()
   @Length(10,150)
   description: string
+
+  @IsUUID()
+  @IsNotEmpty()
+  storageId: string
 }

@@ -1,6 +1,6 @@
 import { ConflictException, Injectable } from '@nestjs/common';
 import { Password, User } from '@prisma/client';
-import { PrismaService } from 'src/shared/services/prisma.service';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 
 @Injectable()
@@ -10,7 +10,7 @@ export class UsersService {
   public getAll(): Promise<User[]> {
     return this.prismaService.user.findMany({
       include: {
-        storage: true
+        storage: true,
       }
     });
   };
